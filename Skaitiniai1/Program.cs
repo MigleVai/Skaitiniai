@@ -6,7 +6,7 @@ namespace Skaitiniai1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Skaitiniai!");
+            Console.WriteLine("Skaitiniai yay!");
         }
     }
 }
