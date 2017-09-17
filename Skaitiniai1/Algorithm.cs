@@ -16,7 +16,7 @@ namespace Skaitiniai1
 
         public bool CheckInterval(float a, float b)
         {
-            if (Function(a) * Function(b) < 0)
+            if (Math.Sign(Function(a)) == Math.Sign(Function(b)))
                 return true;  //it should be
             return false;
         }

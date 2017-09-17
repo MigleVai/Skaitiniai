@@ -52,12 +52,12 @@ namespace Skaitiniai1
             if (algorithms.CheckInterval(c, variables.A)) //resultA
             {
                 Print(_iteration++, variables.A, variables.B, c, answer);
-                variables.B = c;
+                variables.A = c;
             }
             else
             {
                 Print(_iteration++, variables.A, variables.B, c, answer);
-                variables.A = c;
+                variables.B = c;
             }
         }
     }

@@ -8,7 +8,7 @@ namespace Skaitiniai1
         {
             Console.WriteLine("Iteration - A - B - Range - F(range) - B-A");
             Bisection bi = new Bisection();
-            bi.SetVariables(0.7f, 2.5f, 0.0001f);
+            bi.SetVariables(0.1f, 0.5f, 0.0001f);
             bi.DoBisection();
             Console.WriteLine("DONE");
             Console.ReadLine();        
