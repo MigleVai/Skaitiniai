@@ -8,6 +8,7 @@ namespace Skaitiniai1
     {
         public float A { get; set; }
         public float B { get; set; }
-        private float epsilon;
+        public float epsilon { get; set; }
+        public bool IsAnswerGood { get; set; }
     }
 }

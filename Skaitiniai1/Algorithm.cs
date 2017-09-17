@@ -10,13 +10,14 @@ namespace Skaitiniai1
         {
             float y;
             y = x + 1 - (float)Math.Tan(2 * x);
+            //y = x * x - 2 * x - 3;
             return y;
         }
 
         public bool CheckInterval(float a, float b)
         {
             if (Function(a) * Function(b) < 0)
-                return true;
+                return true;  //it should be
             return false;
         }
 
@@ -29,17 +30,19 @@ namespace Skaitiniai1
 
         public bool IsRangeSmallerTwoEpsilon(float a, float b, float epsilon)
         {
-            float range = Math.Abs(a) - Math.Abs(b);
-            if (range <= 2 * epsilon)
-                return true;
-            return false; // range IS smaller than two epsilon
+            float range = a - b;
+            if (Math.Abs(range) <= 2 * epsilon)
+                return true; // range IS smaller than two epsilon - should stop
+            return false; 
         }
 
-        public bool IsAnswerSmallerEpsilon(float c, float epsilon)
+        // |cn - c*| < epsilon ???
+
+        public bool IsAnswerSmallerEpsilon(float answer, float epsilon)
         {
-            if (Math.Abs(c) <= epsilon)
-                return true;
-            return false; // answer IS smaller than epsilon
+            if (Math.Abs(answer) <= epsilon)
+                return true; // answer IS smaller than epsilon - should stop
+            return false; 
         }
     }
 }
