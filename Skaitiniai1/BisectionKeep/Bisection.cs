@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Skaitiniai1
+namespace Skaitiniai1.BisectionKeep
 {
     class Bisection
     {
         Variables variables = new Variables();
-        Algorithm algorithms = new Algorithm();
+        BisectionAlgorithm algorithms = new BisectionAlgorithm();
+        MainFunction funk = new MainFunction();
         int _iteration = 0;
 
         public void SetVariables(float a, float b, float epsilon)
@@ -39,7 +40,7 @@ namespace Skaitiniai1
         {
 
             var c = algorithms.FindCenterPoint(variables.A, variables.B);
-            var answer = algorithms.Function(c);
+            var answer = funk.Function(c);
             if (algorithms.IsAnswerSmallerEpsilon(answer, variables.epsilon))
                 variables.IsAnswerGood = false;
             //var b = algorithms.IsRangeSmallerTwoEpsilon(variables.A, variables.B, variables.epsilon);

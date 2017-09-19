@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Skaitiniai1.BisectionKeep;
+using Skaitiniai1.SecantKeep;
+using System;
 
 namespace Skaitiniai1
 {
@@ -10,6 +12,15 @@ namespace Skaitiniai1
             Bisection bi = new Bisection();
             bi.SetVariables(0.1f, 0.5f, 0.0001f);
             bi.DoBisection();
+
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine("X0 - X1 - f(X1)");
+            Secant sec = new Secant();
+            sec.SetVariables(0.1f, 0.5f, 0.0001f);
+            sec.MainSecant();
+
             Console.WriteLine("DONE");
             Console.ReadLine();        
         }

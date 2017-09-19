@@ -2,21 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Skaitiniai1
+namespace Skaitiniai1.BisectionKeep
 {
-    class Algorithm
+    class BisectionAlgorithm
     {
-        public float Function(float x)
-        {
-            float y;
-            y = x + 1 - (float)Math.Tan(2 * x);
-            //y = x * x - 2 * x - 3;
-            return y;
-        }
+        MainFunction funk = new MainFunction();
 
         public bool CheckInterval(float a, float b)
         {
-            if (Math.Sign(Function(a)) == Math.Sign(Function(b)))
+            if (Math.Sign(funk.Function(a)) == Math.Sign(funk.Function(b)))
                 return true;  //it should be
             return false;
         }
