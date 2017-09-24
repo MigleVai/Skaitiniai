@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Skaitiniai1.SecantKeep
 {
@@ -22,16 +20,14 @@ namespace Skaitiniai1.SecantKeep
         {
             while (true)
             {
-                var temp = algorithm.CountingNewPoint(variables.A, variables.B);
+                var temp = algorithm.CountingNewPoint(variables.A, variables.B); //finds new point
                 variables.A = variables.B;
                 variables.B = temp;
                 temp = funk.Function(variables.B);
                 Print(variables.A, variables.B, temp);
                 i++;
                 if (algorithm.CheckPrecision(variables.A, variables.B, variables.epsilon) || i == 100)
-                {
                     break;
-                }
             }
         }
 

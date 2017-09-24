@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Skaitiniai1.SecantKeep
 {
@@ -8,7 +6,7 @@ namespace Skaitiniai1.SecantKeep
     {
         MainFunction funk = new MainFunction();
 
-        public float CountingNewPoint(float a, float b)
+        public float CountingNewPoint(float a, float b)  //finding new point
         {
             float newPoint;
             var temp1 = b - a;
@@ -19,10 +17,10 @@ namespace Skaitiniai1.SecantKeep
             return newPoint;
         }
 
-        public bool CheckPrecision(float a, float b, float epsilon)
+        public bool CheckPrecision(float a, float b, float epsilon)  //checks if new found point is the approximate answer
         {
             if (Math.Abs(b - a) < epsilon)
-                return true;
+                return true; // it is the approximate answer
             return false;
         }
     }

@@ -10,7 +10,7 @@ namespace Skaitiniai1
         {
             Console.WriteLine("Iteration - A - B - Range - F(range) - B-A");
             Bisection bi = new Bisection();
-            bi.SetVariables(0.1f, 0.5f, 0.0001f);
+            bi.SetVariables(0.1f, 0.6f, 0.0001f);
             bi.DoBisection();
 
             Console.WriteLine(" ");
@@ -18,7 +18,7 @@ namespace Skaitiniai1
             Console.WriteLine(" ");
             Console.WriteLine("X0 - X1 - f(X1)");
             Secant sec = new Secant();
-            sec.SetVariables(0.1f, 0.5f, 0.0001f);
+            sec.SetVariables(0.1f, 0.6f, 0.0001f);
             sec.MainSecant();
 
             Console.WriteLine("DONE");

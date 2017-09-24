@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Skaitiniai1.BisectionKeep
 {
@@ -28,37 +26,36 @@ namespace Skaitiniai1.BisectionKeep
         {
             while (true)
             {
-                var a = algorithms.CheckInterval(variables.A, variables.B);
-                Console.WriteLine(a);
                 DoAlgoritm();
-                if (algorithms.IsRangeSmallerTwoEpsilon(variables.A, variables.B, variables.epsilon) || !variables.IsAnswerGood || _iteration >= 100)
+                var check = algorithms.IsRangeSmallerTwoEpsilon(variables.A, variables.B, variables.epsilon);
+                if (check || !variables.IsAnswerGood || _iteration >= 100)
                     break;
             }
         }
 
         public void DoAlgoritm()
         {
-
-            var c = algorithms.FindCenterPoint(variables.A, variables.B);
-            var answer = funk.Function(c);
-            if (algorithms.IsAnswerSmallerEpsilon(answer, variables.epsilon))
-                variables.IsAnswerGood = false;
-            //var b = algorithms.IsRangeSmallerTwoEpsilon(variables.A, variables.B, variables.epsilon);
-            if (answer == 0)
+            if (!algorithms.CheckInterval(variables.A, variables.B))  //checks interval if signs are different
             {
-                Print(_iteration++, variables.A, variables.B, c, answer);
-                return;
-            }
-           // var resultA = algorithms.Function(variables.A);
-            if (algorithms.CheckInterval(c, variables.A)) //resultA
-            {
-                Print(_iteration++, variables.A, variables.B, c, answer);
-                variables.A = c;
-            }
-            else
-            {
-                Print(_iteration++, variables.A, variables.B, c, answer);
-                variables.B = c;
+                var c = algorithms.FindCenterPoint(variables.A, variables.B); //gets center point
+                var answer = funk.Function(c);      //gets f(c) answer
+                if (algorithms.IsAnswerSmallerEpsilon(answer, variables.epsilon)) //checks if f(c) answer is smaller than epsilon if true stops iteration
+                    variables.IsAnswerGood = false;
+                if (answer == 0)
+                {
+                    Print(_iteration++, variables.A, variables.B, c, answer);
+                    return;
+                }
+                if (algorithms.CheckInterval(c, variables.A)) //check interval signs
+                {
+                    Print(_iteration++, variables.A, variables.B, c, answer);
+                    variables.A = c;  // c and A are on the same side (have same signs)
+                }
+                else
+                {
+                    Print(_iteration++, variables.A, variables.B, c, answer);
+                    variables.B = c; // c and A have different signs
+                }
             }
         }
     }
